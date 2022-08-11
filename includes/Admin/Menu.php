@@ -7,22 +7,16 @@ class Menu{
     {
         // add a menu page in dashboard
         add_action( 'admin_menu' , [ $this , 'adminMenu'] );
-        // add exta links to the plugin
-        add_filter('plugin_action_links_'.WOO_FAQ_BASENAME, [$this, 'settingsLink']);
         // active custom settings
         add_action('admin_init', [$this, 'wooFaqSettings']);
+        
+        $this->adminMenuCallbacks();
     }
 
-    /**
-     * add settings link 
-     *
-     * @return void
-     */
-    public function settingsLink( $links ){
-        $settings_link = '<a href="admin.php?page=woo_sfaq">Settings</a>';
-        array_push($links,$settings_link);
-        return $links;
+    public function adminMenuCallbacks(){
+        $admin_menu = new Callbacks\AdminMenu();
     }
+
     /**
      * Add menu in wordpress dashboard menu
      *
@@ -39,7 +33,7 @@ class Menu{
      * @return void
      */
     public function adminPage(){
-        require_once WOO_FAQ_PATH.'/templates/Admin.php';
+        require_once WOO_FAQ_PATH.'/includes/Admin/Page/Admin.php';
     }
 
     /**
