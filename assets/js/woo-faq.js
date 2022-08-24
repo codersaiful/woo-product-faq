@@ -24,11 +24,11 @@
         // $(".add-question").click(function(){
         //   alert("The paragraph was clicked.");
         // });
-alert(3333);
+
         $(document.body).on('click','.add-question',function(){
-          alert(3433)
+          
           var myNum = $('div.option-group-wrapper .options_group').length + 1;
-          console.log(myNum);
+          
           var myElement = '<div class="options_group">';
           myElement += '<p class="form-field faq_' + myNum + '_field ">';
           myElement += '<label for="faq_' + myNum + '">Question ' + myNum + 1 + '</label><input type="text" class="faq_input" style="" name="faq[question][' + myNum + ']" id="faq_' + myNum + '" value="sdsad" placeholder=""> </p><p class="form-field faq_ans_' + myNum + '_field ">';

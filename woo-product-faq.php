@@ -81,8 +81,9 @@ if( file_exists( dirname(__FILE__) . '/vendor/autoload.php') ){
         if( is_admin() ){
             new Woo\Faq\Admin();
         }else{
-            new \Woo\Faq\Frontend();
+            
         }
+        new \Woo\Faq\Frontend();
         
      }
 
